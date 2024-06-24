@@ -19,7 +19,6 @@ import io.swagger.v3.parser.core.models.ParseOptions
 import io.swagger.v3.parser.core.models.SwaggerParseResult
 import java.io.File
 import org.openapitools.codegen.ClientOptInput
-import org.openapitools.codegen.ClientOpts
 import org.openapitools.codegen.CodegenConstants.APIS
 import org.openapitools.codegen.CodegenConstants.API_TESTS
 import org.openapitools.codegen.CodegenConstants.MODELS
@@ -27,7 +26,7 @@ import org.openapitools.codegen.CodegenConstants.MODEL_PACKAGE
 import org.openapitools.codegen.CodegenConstants.PACKAGE_NAME
 import org.openapitools.codegen.CodegenOperation
 import org.openapitools.codegen.DefaultGenerator
-import org.openapitools.codegen.config.GeneratorProperties.setProperty
+import org.openapitools.codegen.config.GlobalSettings.setProperty
 import org.web3j.corda.codegen.CordaGeneratorUtils.repackage
 import org.web3j.corda.model.Amount
 import org.web3j.corda.model.AmountCurrency
@@ -63,7 +62,6 @@ class CorDappClientGenerator(
         opts(
             ClientOptInput()
                 .config(CorDappClientCodegen(packageName, outputDir, typeMapping, cordaMapping))
-                .opts(ClientOpts())
                 .openAPI(result.openAPI)
         )
         configureGeneratorProperties(result)
